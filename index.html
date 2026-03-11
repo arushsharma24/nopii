@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt PII Remover</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>Prompt PII Remover</h1>
+        <p>
+          100% client-side. No API calls. Paste text, redact names and numbers, then copy safely.
+        </p>
+      </header>
+
+      <section class="controls" aria-label="Redaction controls">
+        <label class="control">
+          <input type="checkbox" id="live-redact" checked />
+          Live redact while typing
+        </label>
+        <label class="control">
+          <input type="checkbox" id="redact-numbers" checked />
+          Redact numbers
+        </label>
+        <label class="control">
+          <input type="checkbox" id="preserve-years" checked />
+          Preserve 4-digit years
+        </label>
+      </section>
+
+      <section class="panes">
+        <div class="pane">
+          <label for="input-text">Original text</label>
+          <textarea
+            id="input-text"
+            placeholder="Paste raw text here..."
+            spellcheck="false"
+          ></textarea>
+          <div class="pane__actions">
+            <button id="redact-btn" type="button">Redact Now</button>
+            <button id="clear-btn" type="button" class="button--secondary">Clear</button>
+          </div>
+        </div>
+
+        <div class="pane">
+          <label for="output-text">Redacted text</label>
+          <textarea id="output-text" readonly spellcheck="false"></textarea>
+          <div class="pane__actions">
+            <button id="copy-btn" type="button">Copy Output</button>
+            <span id="copy-status" aria-live="polite"></span>
+          </div>
+        </div>
+      </section>
+
+      <details class="notes">
+        <summary>Detection notes</summary>
+        <ul>
+          <li>Names are detected with local heuristics on capitalized words (no model/API).</li>
+          <li>Numbers are masked as <code>XXX</code> unless year-preserve mode keeps <code>1900-2099</code>.</li>
+          <li>Always review output before sharing sensitive content.</li>
+        </ul>
+      </details>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
