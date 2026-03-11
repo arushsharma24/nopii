@@ -203,7 +203,7 @@ const example = `Hi Rowan,
 
 Attached is the Q4 project summary for 2025. The report references budget line item 482-19 and an estimated total of 84500 credits for planning purposes.
 
-If you have any questions, please contact me, Avery, or Jordan in this thread.
+If you have any questions, please contact me, Avery, or Jordan in this thread. Also make sure to talk to James about this, since Avery mentioned he was anticipating some issues with this.
 
 Thanks,
 Taylor`;
